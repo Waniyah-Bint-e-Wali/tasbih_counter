@@ -12,8 +12,39 @@ class DhikrScreen extends StatelessWidget {
       body: Consumer<DhikrProvider>(
         builder: (context, dhikrProvider, child) {
           final dhikrs = dhikrProvider.getDhikr();
-
-          return Container(
+          if(dhikrs.isEmpty){
+            return Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xFF2c3e50), Color(0xFF34495e)],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: Padding(
+                  padding: const EdgeInsets.only(top: 50),
+                  child: Column(
+                    children: [
+                    const Text(
+                    "Tasbih Counter",
+                    style: TextStyle(
+                      color: Colors.white54,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                      Padding(
+                        padding: const EdgeInsets.only(top:300),
+                        child: Text("Add new Dhikr",style:TextStyle(fontSize:18,color:Colors.white54)),
+                      )
+                    ]
+                  )
+              )
+            );
+          }
+          else{return Container(
             width: double.infinity,
             height: double.infinity,
             decoration: const BoxDecoration(
@@ -118,6 +149,7 @@ class DhikrScreen extends StatelessWidget {
               ),
             ),
           );
+          }
         },
       ),
       floatingActionButton: FloatingActionButton(
