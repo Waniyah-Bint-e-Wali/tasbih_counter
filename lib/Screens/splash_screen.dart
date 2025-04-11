@@ -1,5 +1,6 @@
 import 'package:counter_tasibh/Screens/counter_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:counter_tasibh/Screens/first_screen.dart';
 import 'dart:async';
 
 class SplashScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class SplashScreen extends StatelessWidget {
     Timer(const Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const CounterScreen()),
+        MaterialPageRoute(builder: (context) => const FirstScreen()),
       );
     });
 

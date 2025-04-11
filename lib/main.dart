@@ -1,5 +1,6 @@
 import 'package:counter_tasibh/Screens/splash_screen.dart';
 import 'package:counter_tasibh/Screens/counter_provider.dart';
+import 'package:counter_tasibh/Screens/dhikr_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,8 +13,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CounterProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => DhikrProvider()),
+        ChangeNotifierProvider(create: (context) => CounterProvider()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: const SplashScreen(),
